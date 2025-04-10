@@ -1,0 +1,2 @@
+# This file prevents GitHub from running the published content through Jekyll
+# This helps with SPA deployments 

@@ -48,6 +48,12 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Vite
         run: ${{ steps.detect-package-manager.outputs.runner }} vite build
+      - name: Copy SPA support files
+        run: |
+          # Ensure we have .nojekyll file
+          touch ./dist/.nojekyll
+          # Copy 404.html for SPA routing support
+          cp ./public/404.html ./dist/404.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
