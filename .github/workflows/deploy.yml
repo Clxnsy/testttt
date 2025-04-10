@@ -48,6 +48,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Vite
         run: ${{ steps.detect-package-manager.outputs.runner }} vite build
+      - name: Show dist/index.html content
+        run: cat ./dist/index.html
       - name: Copy SPA support files
         run: |
           # Ensure we have .nojekyll file
